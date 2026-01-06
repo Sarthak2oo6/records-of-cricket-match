@@ -2,152 +2,117 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Praewadi Primar League</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Orbitron:wght@600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Orbitron:wght@600;700&display=swap" rel="stylesheet">
 
 <style>
-:root{
-  --primary:#22c55e;
-  --secondary:#38bdf8;
-  --dark:#020617;
+/* ===== RESET ===== */
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
 }
 
-*{box-sizing:border-box}
-
+/* ===== BODY ===== */
 body{
-  margin:0;
   font-family:'Poppins',sans-serif;
   background:
     radial-gradient(circle at 20% 10%, #1e293b, transparent 40%),
     radial-gradient(circle at 80% 0%, #0f766e, transparent 35%),
-    var(--dark);
+    #020617;
   color:#fff;
 }
 
-/* HEADER */
+/* ===== HEADER ===== */
 header{
   text-align:center;
   padding:40px 15px 30px;
 }
 
-.league-badge{
-  width:70px;
-  height:70px;
-  margin:0 auto 10px;
-  border-radius:50%;
-  background:linear-gradient(135deg,var(--primary),var(--secondary));
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:34px;
-  box-shadow:0 0 30px #22c55e70;
-  animation:pulse 2.5s infinite;
-}
-
 header h1{
   font-family:'Orbitron',sans-serif;
-  font-size:30px;
-  margin:10px 0 5px;
-  background:linear-gradient(90deg,var(--primary),var(--secondary));
+  font-size:28px;
+  letter-spacing:2px;
+  background:linear-gradient(90deg,#22c55e,#38bdf8);
   -webkit-background-clip:text;
   -webkit-text-fill-color:transparent;
 }
 
 header p{
+  margin-top:6px;
   font-size:14px;
   opacity:.85;
 }
 
-/* TOP SCORER CARD */
+/* ===== MAIN WRAPPER (CENTER FIX) ===== */
+main{
+  width:100%;
+  display:block;
+}
+
+/* ===== TOP SCORER CARD ===== */
 .top-scorer{
-  max-width:900px;
-  margin:0 auto 25px;
+  max-width:1000px;
+  margin:0 auto 22px;
   padding:18px;
-  border-radius:20px;
+  border-radius:18px;
   background:linear-gradient(135deg,#14532d,#064e3b);
+  box-shadow:0 12px 40px rgba(34,197,94,.4);
   display:flex;
-  align-items:center;
   justify-content:space-between;
-  box-shadow:0 15px 40px #22c55e50;
-  animation:slideUp 1s ease;
+  align-items:center;
 }
 
 .top-scorer .left{
   display:flex;
+  gap:12px;
   align-items:center;
-  gap:15px;
 }
 
-.trophy{
-  font-size:42px;
-  animation:shine 2s infinite;
+.top-scorer .trophy{
+  font-size:34px;
 }
 
-.player-name{
+.top-scorer strong{
   font-size:18px;
-  font-weight:600;
 }
 
-.player-runs{
+.top-scorer span{
   font-size:14px;
-  opacity:.85;
+  opacity:.9;
 }
 
-.badge{
-  background:gold;
-  color:#000;
-  font-size:12px;
-  font-weight:600;
-  padding:6px 12px;
-  border-radius:20px;
-}
-
-/* MAIN CONTAINER */
-.container{
-  margin:20px auto;          /* THIS centers it */
-  padding:18px;
+/* ===== SCOREBOARD SECTION ===== */
+.section{
   max-width:1100px;
-  width:95%;
-  border-radius:22px;
-  background:rgba(255,255,255,.08);
-  backdrop-filter:blur(14px);
-  box-shadow:0 20px 60px rgba(0,0,0,.6);
-  animation:slideUp .9s ease;
-}
-
-.section-title{
-  display:flex;
-  justify-content:space-between;
-  margin-bottom:12px;
-}
-
-.live-pill{
-  font-size:11px;
-  padding:4px 10px;
+  margin:0 auto 30px;
+  padding:16px;
   border-radius:20px;
-  background:linear-gradient(90deg,#ef4444,#f97316);
-  animation:blink 1.5s infinite;
+  background:rgba(255,255,255,.08);
+  backdrop-filter:blur(12px);
+  box-shadow:0 20px 60px rgba(0,0,0,.6);
 }
 
-.iframe-wrap{
+/* ===== IFRAME (CRITICAL PART) ===== */
+.sheet-wrapper{
   width:100%;
-  display:flex;
-  justify-content:center;   /* Center iframe */
-  align-items:center;
   overflow:hidden;
-  border-radius:16px;
+  border-radius:14px;
 }
 
-iframe{
+.sheet-wrapper iframe{
+  display:block;
   width:100%;
-  height:72vh;
-  border:none;
+  height:75vh;
+  border:0;
   background:#fff;
 }
 
-/* FOOTER */
+/* ===== FOOTER ===== */
 footer{
   text-align:center;
   font-size:12px;
@@ -155,31 +120,18 @@ footer{
   padding:20px;
 }
 
-/* ANIMATIONS */
-@keyframes slideUp{
-  from{transform:translateY(40px);opacity:0}
-  to{transform:translateY(0);opacity:1}
-}
-
-@keyframes pulse{
-  0%,100%{box-shadow:0 0 20px #22c55e70}
-  50%{box-shadow:0 0 40px #22c55eb0}
-}
-
-@keyframes blink{
-  50%{opacity:.6}
-}
-
-@keyframes shine{
-  50%{transform:scale(1.1)}
-}
-
-/* MOBILE */
+/* ===== MOBILE ===== */
 @media(max-width:600px){
+  header h1{font-size:22px}
+
   .top-scorer{
     flex-direction:column;
     text-align:center;
-    gap:10px;
+    gap:8px;
+  }
+
+  .sheet-wrapper iframe{
+    height:65vh;
   }
 }
 </style>
@@ -188,45 +140,35 @@ footer{
 <body>
 
 <header>
-  <div class="league-badge">🏆</div>
-  <h1>Praewadi Primar League</h1>
-  <p>Official Daily Player Results • Runs & Wickets</p>
+  <h1>🏏 Praewadi Primar League</h1>
+  <p>Daily Player Results • Runs & Wickets</p>
 </header>
 
-<!-- HIGHEST RUNS SCORER -->
-<div class="top-scorer">
-  <div class="left">
-    <div class="trophy">🥇</div>
-    <div>
-      <div class="player-name">Sushant Patil</div>
-      <div class="player-runs">42 Runs (Boundaries)</div>
+<main>
+
+  <!-- TOP SCORER -->
+  <div class="top-scorer">
+    <div class="left">
+      <div class="trophy">🥇</div>
+      <div>
+        <strong>Sushant Patil</strong><br>
+        <span>42 Runs (Boundaries)</span>
+      </div>
+    </div>
+    <div>Top Scorer of the Day</div>
+  </div>
+
+  <!-- SCOREBOARD -->
+  <div class="section">
+    <div class="sheet-wrapper">
+      <iframe
+        loading="lazy"
+        src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTqkDHjXpMAnu9pCCx9mCB6GpumEQCNCHc34ijVID6DVegU_LaMzz_etR_MeLxI0ZOut7Z5Qd6L6QpC/pubhtml?gid=364741082&single=true">
+      </iframe>
     </div>
   </div>
-  <div class="badge">HIGHEST RUNS SCORER </div>
-</div>
-<!-- HIGHEST WICKET TAKER -->
-<div class="top-scorer">
-  <div class="left">
-    <div class="trophy">🥇</div>
-    <div>
-      <div class="player-name">Sushant Patil</div>
-      <div class="player-runs">42 Runs (Boundaries)</div>
-    </div>
-  </div>
-  <div class="badge">HIGHEST WICKET TAKER</div>
-</div>
 
-
-<div class="container">
-  <div class="section-title">
-    <h3>🏏 Match Day Scoreboard</h3>
-    <div class="live-pill">UPDATED</div>
-  </div>
-
-  <div class="iframe-wrap">
-    <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTqkDHjXpMAnu9pCCx9mCB6GpumEQCNCHc34ijVID6DVegU_LaMzz_etR_MeLxI0ZOut7Z5Qd6L6QpC/pubhtml?gid=364741082&single=true"></iframe>
-  </div>
-</div>
+</main>
 
 <footer>
   © 2026 Praewadi Primar League
